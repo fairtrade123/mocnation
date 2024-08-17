@@ -1,0 +1,25 @@
+const buildPlanSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  images: [String],
+  instructions: [
+    {
+      stepNumber: Number,
+      description: String,
+      image: String,
+    },
+  ],
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
+  tags: [String],
+  requiredPieces: [String], // Array of piece identifiers (e.g., "2x4 Brick", "1x2 Brick")
+  createdDate: { type: Date, default: Date.now },
+  updatedDate: { type: Date, default: Date.now },
+  likes: { type: Number, default: 0 },
+  comments: [
+    {
+      user: { type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
+      comment: String,
+      createdDate: { type: Date, default: Date.now },
+    },
+  ],
+});

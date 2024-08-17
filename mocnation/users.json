@@ -1,0 +1,15 @@
+{
+  "_id": ObjectId,               // Unique identifier for the user
+  "username": String,           // Unique username for the user
+  "email": String,              // User's email address
+  "passwordHash": String,       // Hashed password for authentication
+  "profilePicture": String,     // URL to the user's profile picture
+  "joinedDate": Date,           // Date the user joined
+  "bio": String,                // Short biography or description of the user
+  "buildPlans": [               // Array of references to build plans created by the user
+    {
+      "type": ObjectId,
+      "ref": "BuildPlans"
+    }
+  ]
+}

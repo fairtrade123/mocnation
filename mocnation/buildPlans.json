@@ -1,0 +1,35 @@
+{
+  "_id": ObjectId,               // Unique identifier for the build plan
+  "title": String,               // Title of the build plan
+  "description": String,         // Detailed description of the build plan
+  "images": [                    // Array of image URLs for the build plan
+    String
+  ],
+  "instructions": [              // Array of step-by-step instructions
+    {
+      "stepNumber": Number,      // Step number in the build process
+      "description": String,      // Description of the step
+      "image": String             // Optional image for the step
+    }
+  ],
+  "user": {                      // Reference to the user who created the build plan
+    "type": ObjectId,
+    "ref": "Users"
+  },
+  "tags": [                      // Array of tags for categorizing the build plan
+    String
+  ],
+  "createdDate": Date,           // Date the build plan was created
+  "updatedDate": Date,           // Date the build plan was last updated
+  "likes": Number,               // Count of likes for the build plan
+  "comments": [                  // Array of comments on the build plan
+    {
+      "user": {                  // Reference to the user who commented
+        "type": ObjectId,
+        "ref": "Users"
+      },
+      "comment": String,         // The comment text
+      "createdDate": Date        // Date the comment was made
+    }
+  ]
+}
